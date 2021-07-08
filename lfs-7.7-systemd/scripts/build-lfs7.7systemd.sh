@@ -1,3 +1,7 @@
+#Revision history
+#V1.1 zhaoxiaohu 2021.07.04
+#V1.2 libaolin 2021.07.08
+
 #
 #       Linux From Scratch
 #      Version 7.7-systemd
@@ -50,6 +54,7 @@ yum install -y openssl-devel
 yum install -y texinfo # for makeinfo
 
 yum install -y vim
+yum install -y nano
 
 #
 # Get "实验指导手册" and "脚本" from gitee
@@ -62,9 +67,9 @@ git config --global user.email "your-email-address-on-gitee"
 mkdir ~/openEuler
 cd ~/openEuler
 git clone https://gitee.com/openeuler-practice-courses/lfs-course
-cd cd lfs-course/
+cd lfs-course/
 ls
-##LICENSE  README.en.md  README.md  lfs-7.7-systemd/
+#LICENSE  README.en.md  README.md  lfs-7.7-systemd/
 
 # Check the file cfns-4.9.2.patch
 ls ~/openEuler/lfs-course/lfs-7.7-systemd/scripts/sample/patch/cfns-4.9.2.patch
@@ -134,8 +139,10 @@ unset lib
 EOF
 
 bash library-check.sh
-
-shutdown -h now
+#如果出现以下保存则忽略
+#libgmp.la: not found
+#libmpfr.la: not found
+#libmpc.la: not found
 
 #
 # Chapter 2. Preparing a New Partition
@@ -163,7 +170,10 @@ shutdown -h now
 
 # Adding a Disk for LFS in VM
 # Size: 30GB
-echo "Please refer to 实验指导手册 to add a hard disk"
+
+
+#关机，参考实验手册添加另外一块硬盘
+shutdown -h now
 
 # Start the machine
 # Terminal
@@ -175,9 +185,11 @@ ssh root@192.168.11.130 # instead of your own IP address
 lsblk
 fdisk -l /dev/sdb
 
+#开始给第二块磁盘分配
 # Just create a primary partition: sdb1
 fdisk /dev/sdb
 
+#依次输入 n  p 回车 回车 回车 w
 # Welcome to fdisk (util-linux 2.35.2).
 # Changes will remain in memory only, until you decide to write them.
 # Be careful before using the write command.
@@ -212,7 +224,7 @@ blkid
 # LFS assumes that the root file system (/) is of type ext4.
 # mkfs -v -t ext4 /dev/<xxx>
 # Replace <xxx> with the name of the LFS partition.
-
+#格式化刚刚分区的磁盘
 mkfs -v -t ext4 /dev/sdb1
 
 # Determine
@@ -224,12 +236,7 @@ blkid
 # export LFS=/mnt/lfs
 cp /root/.bash_profile{,.origin}
 echo "export LFS=/mnt/lfs" >> /root/.bash_profile
-
-# Reboot & determine
-reboot
-
-# Terminal
-ssh root@192.168.11.130 # instead of your own IP address
+source /root/.bash_profile
 
 # Determine
 echo $LFS # /mnt/lfs
@@ -280,9 +287,15 @@ chmod -v a+wt $LFS/sources
 # Get the packages for LFS
 # http://www.linuxfromscratch.org/lfs/packages.html#packages
 # http://ftp.osuosl.org/pub/lfs/lfs-packages/
-
 # Execuate in terminal, and replace the IP address of yours
-scp lfs-packages-7.7-systemd.tar root@192.168.11.130:/mnt/lfs/
+#scp lfs-packages-7.7-systemd.tar root@192.168.11.130:/mnt/lfs/
+#下载lfs-packages-7.7-systemd.tar
+cd $LFS
+wget https://zhuanyejianshe.obs.cn-north-4.myhuaweicloud.com/chuangxinshijianke/lfs-packages-7.7-systemd.tar
+
+#或者用下面链接，速度可能会慢些
+#wget http://ftp.osuosl.org/pub/lfs/lfs-packages/lfs-packages-7.7-systemd.tar
+
 
 #
 # The bug is on the GCC 4.9 side, so either you need to patch it, 
@@ -317,7 +330,7 @@ groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 
 passwd lfs # Input password by handwork
-#  Lfs@123
+#  lfs@123
 
 # Grant lfs full access to all directories under $LFS 
 # by making lfs the directory owner
@@ -333,9 +346,12 @@ whoami # root
 # Adding sudo for lfs, by Andrew
 
 cp /etc/sudoers{,.origin}
-visudo
+nano +100 /etc/sudoers
+
+#复制root这一行，将root替换为lfs，替换后结果如下：
 #  root    ALL=(ALL)       ALL
 #  lfs     ALL=(ALL)       ALL
+#按Ctrl+o回车保存，Ctrl+x退出
 
 #
 # Login as user lfs!!!
@@ -429,7 +445,7 @@ reboot
 # e. Delete the extracted source directory unless instructed otherwise.
 
 
-# Terminal: Login again by lfs user
+# 此处开始第一遍编译，以lfs用户登录
 ssh lfs@192.168.11.130 # instead of your own IP address
 
 cd $LFS

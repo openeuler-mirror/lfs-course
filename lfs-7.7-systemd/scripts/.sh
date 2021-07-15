@@ -3273,12 +3273,6 @@ EOF
 # First exit from the chroot environment
 logout
 
-
-
-# 这里请大家参考实验指导手册4.6完成新系统引导过程！！！
-
-
-
 # Then unmount the virtual file systems and LFS file system itself
 umount -v $LFS/dev/pts
 umount -v $LFS/dev
@@ -3286,6 +3280,10 @@ umount -v $LFS/run
 umount -v $LFS/proc
 umount -v $LFS/sys
 umount -v $LFS
+
+
+# 这里请大家参考实验指导手册4.6完成新系统引导过程
+
 
 
 

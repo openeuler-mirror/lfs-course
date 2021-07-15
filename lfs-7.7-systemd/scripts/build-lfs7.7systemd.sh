@@ -1469,7 +1469,7 @@ make
 touch /etc/ld.so.conf
 make install
 
-cp -v ../glibc-2.21/nscd/nscd.conf /etc/nscd.conf
+cp -v /sources/glibc-2.21/nscd/nscd.conf /etc/nscd.conf
 mkdir -pv /var/cache/nscd
 
 install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
@@ -3178,7 +3178,7 @@ make mrproper
 ##ls /sources/linux-3.19/arch/x86/configs/x86_64_defconfig
 
 make menuconfig
-#  saved to /sources/linux-3.19/x86_64-make-menuconfig.config
+#  saved to /sources/linux-3.19/.config
 
 ##make defconfig # the config file was saved to .config
 
@@ -3279,8 +3279,48 @@ umount -v $LFS/sys
 umount -v $LFS
 
 
-echo "Now please refer to 实验指导手册 to update the content of file /boot/grub2/grub.cfg"
+echo "Now please refer to 实验指导手册 to update the content of file /boot/grub2/grub.cfg" # Part 4.6.2
 
+reboot # and log in by root user
+
+# Update /boot/grub2/grub.cfg
+
+ssh root@192.168.11.130 # instead of your own IP address
+
+cd /mnt/lfs/boot/grub
+cp -v grub.cfg{,.origin}
+cat grub.cfg
+# or
+# vi grub.cfg
+
+
+# Copy part begin
+# ### BEGIN /etc/grub.d/10_linux ###
+# menuentry 'GNU/Linux' --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-cc2f6dd5-caf9-4e91-9eac-edbfa484a4bc' {
+# 	load_video
+# 	insmod gzio
+# 	insmod part_msdos 
+# 	insmod ext2
+# 	set root='hd1,msdos1'
+# 	if [ x$feature_platform_search_hint = xy ]; then
+# 	  search --no-floppy --fs-uuid --set=root --hint-bios=hd1,msdos1 --hint-efi=hd1,msdos1 --hint-baremetal=ahci1,msdos1  cc2f6dd5-caf9-4e91-9eac-edbfa484a4bc
+# 	else
+# 	  search --no-floppy --fs-uuid --set=root cc2f6dd5-caf9-4e91-9eac-edbfa484a4bc
+# 	fi
+# 	echo	'Loading Linux 3.19-lfs-7.7-systemd ...'
+# 	linux	/boot/vmlinuz-3.19-lfs-7.7-systemd root=/dev/sdb1 ro  
+# }
+# Copy part end
+
+cd /boot/grub2/
+cp -v grub.cfg{,.origin}
+vi grub.cfg
+
+# Paste after
+# ### BEGIN /etc/grub.d/10_linux ###
+
+# !!! ATTENTION !!!
+# Modify 'GNU/Linux' -> 'GNU/Linux {your-number}-{your-name}'
 
 
 
@@ -3292,68 +3332,10 @@ reboot
 # Password: Lfs@123 # The password of lfs user which set in Chapter 4
 #           or `passwd root` in "6.25.3. Setting the root password"
 
+uname -m 
+uname -r
+cat /etc/os-release 
+hostname
 
 # 9.4. What Now?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
 

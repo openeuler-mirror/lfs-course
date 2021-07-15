@@ -527,7 +527,7 @@ mkdir -v build
 cd build/
 ../configure --target=$LFS_TGT --prefix=/tools --with-sysroot=$LFS --with-newlib --without-headers --with-local-prefix=/tools --with-native-system-header-dir=/tools/include --disable-nls --disable-shared --disable-multilib --disable-decimal-float --disable-threads --disable-libatomic --disable-libgomp --disable-libitm --disable-libquadmath --disable-libsanitizer --disable-libssp --disable-libvtv --disable-libcilkrts --disable-libstdc++-v3 --enable-languages=c,c++
 
-make
+make -j 4
 make install
 
 # Clean
@@ -609,7 +609,8 @@ cd gcc-4.9.2
 mkdir build && cd build
 
 ../libstdc++-v3/configure --host=$LFS_TGT --prefix=/tools --disable-multilib --disable-shared --disable-nls --disable-libstdcxx-threads --disable-libstdcxx-pch --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/4.9.2
-make
+
+make -j 4
 make install
 
 # Clean
@@ -1194,7 +1195,8 @@ tar xJf util-linux-2.26.tar.xz
 cd util-linux-2.26
 
 ./configure --prefix=/tools --without-python --disable-makeinstall-chown --without-systemdsystemunitdir PKG_CONFIG=""
-make
+
+make -j 4
 make install
 
 # Clean
@@ -1469,7 +1471,8 @@ make
 touch /etc/ld.so.conf
 make install
 
-cp -v ../glibc-2.21/nscd/nscd.conf /etc/nscd.conf
+
+cp -v ../nscd/nscd.conf /etc/nscd.conf
 mkdir -pv /var/cache/nscd
 
 install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
@@ -1630,7 +1633,7 @@ tar xJf gmp-6.0.0a.tar.xz
 cd gmp-6.0.0
 
 ./configure --prefix=/usr --enable-cxx --docdir=/usr/share/doc/gmp-6.0.0a
-make
+make -j 4
 make html
 
 # Do it begin
@@ -1656,7 +1659,7 @@ cd mpfr-3.1.2
 
 patch -Np1 -i ../mpfr-3.1.2-upstream_fixes-3.patch
 ./configure --prefix=/usr --enable-thread-safe --docdir=/usr/share/doc/mpfr-3.1.2
-make
+make -j 4
 make html
 ##make check # Do it!
 make install
@@ -1676,7 +1679,7 @@ tar xzf mpc-1.0.2.tar.gz
 cd mpc-1.0.2
 
 ./configure --prefix=/usr --docdir=/usr/share/doc/mpc-1.0.2
-make
+make -j 4
 make html
 ##make check # Do it!
 make install
@@ -1877,7 +1880,7 @@ sed -i -e "/TABS-1;/a if (x > (TABS-1)) x = (TABS-1);" libacl/__acl_to_any_text.
 
 ./configure --prefix=/usr --libexecdir=/usr/lib
 
-make
+make -j 4
 
 ##make -j1 tests # Note: When coreutils have built # Do it!
 
@@ -2076,7 +2079,7 @@ patch -Np1 -i ../coreutils-8.23-i18n-1.patch
 touch Makefile.in
 
 FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=/usr --enable-no-install-program=kill,uptime
-make
+make 
 
 # Do it begin
 ##make NON_ROOT_USERNAME=nobody check-root
@@ -3270,6 +3273,12 @@ EOF
 # First exit from the chroot environment
 logout
 
+
+
+# 这里请大家参考实验指导手册4.6完成新系统引导过程！！！
+
+
+
 # Then unmount the virtual file systems and LFS file system itself
 umount -v $LFS/dev/pts
 umount -v $LFS/dev
@@ -3277,10 +3286,6 @@ umount -v $LFS/run
 umount -v $LFS/proc
 umount -v $LFS/sys
 umount -v $LFS
-
-
-echo "Now please refer to 实验指导手册 to update the content of file /boot/grub2/grub.cfg"
-
 
 
 

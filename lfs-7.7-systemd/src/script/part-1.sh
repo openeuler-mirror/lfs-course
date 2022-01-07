@@ -516,7 +516,7 @@ ls -l
 
 # Get the lfs-course material( to get cfns-4.9.2.patch) 
 ##git clone https://gitee.com/openeuler-practice-courses/lfs-course.git
-git clone https://gitee.com/manjucc/lfs-course.git # Instead of the official repository shown above
+git clone https://gitee.com/glibc/lfs-course.git # Instead of the official repository shown above
 
 # Check
 ls -l $LFS/material/

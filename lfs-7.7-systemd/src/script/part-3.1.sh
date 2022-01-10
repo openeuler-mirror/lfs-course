@@ -20,8 +20,8 @@
 # 4. 为了编译的流畅性，在“6.25.3. Setting the root password”暂缓设置 password 
 #    而是把它放到本节的最后；
 # 5. 为了编译的流畅性，在“6.36. Bash-4.3.30”忽略了登录新编译出来的 bash；
-# 6. 如果发现 make 的“Segmentation fault (core dumped)”错误，请重启宿主系统，
-#    执行上述步骤0、1、2，然后重新构建没有完成的系统软件；
+# 6. 如果发现运行 make 时出现“Segmentation fault (core dumped)”错误，请
+#    重启宿主系统并执行上述步骤0、1、2，然后重新构建没有完成的系统软件；
 # 7. 凡是警告皆可（暂时）忽略，一个错误便要重来，但 Error (ignored) 的可以除外。
 # 8. 其实本节应该 make check 或 make test，因为耗时暂且省略。
 #    所以你看到类似以下警告就不足为怪了：

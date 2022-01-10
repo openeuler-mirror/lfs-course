@@ -12,8 +12,8 @@
 # 0. 你应该以 root 用户登录 host；
 #    ssh root@192.168.56.102 # instead of your own IP address
 # 1. Change the ownership of $LFS/tools/；
-# 2. 创建 mount-and-populate.sh 脚本；
-# 3. 创建 chroot2lfs.sh 脚本（为了不损坏宿主系统，我们要进入 chrooted 环境）；
+# 2. 创建并运行 mount-and-populate.sh 脚本；
+# 3. 创建并运行 chroot2lfs.sh 脚本（为了不损坏宿主系统，我们要进入 chrooted 环境）；
 #
 
 #

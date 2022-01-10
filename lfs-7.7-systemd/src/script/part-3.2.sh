@@ -15,7 +15,7 @@
 #    sh ~/mount-and-populate.sh
 # 2. 以新的脚本进入 chrooted 环境：
 #    sh ~/chroot2lfs2.sh
-# 3. 然后逐步完成系统配置任务。
+# 3. 逐步完成 LFS 目标系统的配置任务。
 #
 
 # Mount for LFS_Target_System - step 1/2

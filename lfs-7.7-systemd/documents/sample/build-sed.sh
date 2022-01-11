@@ -13,7 +13,7 @@ cd sed-4.2.2
 make
 ls -l sed/
 #...
-#-rwx------ 1 root root 283464 Jan 11 16:43 sed
+#-rwx------ 1 root root 283456 Jan 11 16:43 sed
 
 make check
 
@@ -23,7 +23,7 @@ make install
 cd ~
 ls -l ~/mysed/bin/
 #total 280
-#-rwxr-xr-x 1 root root 283464 Jan 11 16:45 sed
+#-rwxr-xr-x 1 root root 283456 Jan 11 16:45 sed
 
 echo "This is a test" | ~/mysed/bin/sed 's/test/big test/'
 

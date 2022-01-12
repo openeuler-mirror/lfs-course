@@ -20,4 +20,4 @@
 |-----|--------------------------|------------------------------|-------------------------------|
 |  1  |root of host              |Euler@123                     |Installing openEuler           |
 |  2  |lfs of host               |Lfs@123                       |Creating lfs user              |
-|  3  |root of target LFS system |Lfs@12#$                      |Installing shadow in chapter 6 |
+|  3  |root of target LFS system |Lfs12#$                       |Installing shadow in chapter 6 |

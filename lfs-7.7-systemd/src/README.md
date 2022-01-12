@@ -16,8 +16,8 @@
 
 ## Users and passwords
 
-| No. | Who the user is          | What password        | When was it created           |
-|-----|--------------------------|----------------------|-------------------------------|
-|  1  |root of host              |Euler@123             |Installing openEuler           |
-|  2  |lfs of host               |Lfs@123               |Creating lfs user              |
-|  3  |root of target LFS system |Lfs@12#$              |Installing shadow in chapter 6 |
+| No. | Who the user is          | What password (for instance) | When was it created           |
+|-----|--------------------------|------------------------------|-------------------------------|
+|  1  |root of host              |Euler@123                     |Installing openEuler           |
+|  2  |lfs of host               |Lfs@123                       |Creating lfs user              |
+|  3  |root of target LFS system |Lfs@12#$                      |Installing shadow in chapter 6 |

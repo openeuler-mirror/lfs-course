@@ -4,6 +4,7 @@
 cd ~
 mkdir ~/build-sed && cd $_
 
+##wget http://mirrors.ustc.edu.cn/gnu/sed/sed-4.2.2.tar.gz
 wget https://ftp.gnu.org/gnu/sed/sed-4.2.2.tar.gz
 tar xzf sed-4.2.2.tar.gz
 cd sed-4.2.2

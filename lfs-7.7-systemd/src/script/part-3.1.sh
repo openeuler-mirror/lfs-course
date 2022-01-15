@@ -30,7 +30,21 @@
 #    再尝试编译看能否解决问题。
 # 10.当通过一个终端进入 chrooted 环境进行编译时，就让它静静编译，
 #    不要有其他终端重复进入。
+#
 # 11.在编译“6.66. Man-DB-2.7.1”时，可能出现如下错误：
+#make[3]: *** [man.o] Error 1
+#make[3]: *** Waiting for unfinished jobs....
+#make[2]: *** [all-recursive] Error 1
+#make[1]: *** [all-recursive] Error 1
+#make: *** [all] Error 2
+# 其中，
+#make[3]: *** Waiting for unfinished jobs....
+# 一般是由于多线程 make 引起的（我们默认是 4 线程 make），如果是这样，
+# 用单线程 make 即可解决问题，即：
+# make -j1
+# 我们的脚本也正是这样做的。
+#
+# 但还是会出现如下错误：
 #man.c:1257:26: error: 'TROFF' undeclared (first use in this function)
 #       (get_def ("troff", TROFF));
 #
@@ -43,7 +57,9 @@
 #make: *** [all] Error 2
 #......
 #make: *** [install-recursive] Error 1
-#    你可自己尝试解决之或者暂且忽略以上错误。
+# 这正是同学们大显身手解决问题的好机会：）
+# 然而如果忽略以上错误，对构建 LFS 目标系统的流程不会造成影响，
+# 即不会导致 LFS 目标系统构建不下去的现象。
 #
 
 #

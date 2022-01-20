@@ -514,9 +514,9 @@ ls -l
 # scp lfs-packages-7.7-systemd.tar root@192.168.56.102:/mnt/lfs/material
 # 在上述命令中，请使用您自己宿主系统的 IP 地址替代示例中的 IP 地址。
 
-# Get the lfs-course material( to get cfns-4.9.2.patch) 
-git clone https://gitee.com/openeuler-practice-courses/lfs-course.git
-##git clone -b lfs_v1.3 https://gitee.com/glibc/lfs-course.git # Instead of the official repository shown above
+# Get the lfs-course material
+git clone https://gitee.com/openeuler/lfs-course.git # Official, upstream branch
+##git clone -b lfs_v1.3 https://gitee.com/glibc/lfs-course.git # Development, downstream branch, for instance.
 
 # Check
 ls -l $LFS/material/
@@ -603,7 +603,10 @@ cat > ./tf/prompt2enter-next-step.txt << "EOF"
                               
                               
  ----------------------------
-| Please enter Part II.      |
+| Please exit lfs user and   |
+| reboot before              |
+| entering Part II           |
+| as lfs user of host.       |
  ----------------------------
 
 

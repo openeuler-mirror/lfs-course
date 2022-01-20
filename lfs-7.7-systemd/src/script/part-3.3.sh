@@ -170,7 +170,9 @@ cat > /tf/prompt2enter-next-step.txt << "EOF"
                               
                               
  ----------------------------
-| Please enter Part-3.4.     |
+| Please enter Part-3.4      |
+| directly                   | 
+| without rebooting.         |
  ----------------------------
 
 

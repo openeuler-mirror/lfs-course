@@ -263,7 +263,10 @@ cat > /tf/prompt2enter-next-step.txt << "EOF"
                               
                               
  ----------------------------
-| Please enter Part-3.1.     |
+| Please exit chrooted       | 
+| environment and reboot     |
+| before                     |
+| entering Part-3.1.         |
  ----------------------------
 
 

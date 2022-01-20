@@ -1681,8 +1681,9 @@ cat > /tf/prompt2enter-next-step.txt << "EOF"
                               
                               
  ----------------------------
-| Please set password        |
-| before                     |
+| Please set password and    |
+| exit chrooted environment  |
+| and reboot before          |
 | entering part-3.2.         |
  ----------------------------
 

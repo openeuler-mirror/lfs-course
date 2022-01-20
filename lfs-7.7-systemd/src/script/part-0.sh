@@ -292,7 +292,9 @@ cat > ~/tf/prompt2enter-next-step.txt << "EOF"
                               
                               
  ----------------------------
-| Please enter Part I.       |
+| Please enter Part I        |
+| directly                   |
+| as root of host.           |
  ----------------------------
 
 

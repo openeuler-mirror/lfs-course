@@ -908,7 +908,9 @@ cat > $LFS/tf/prompt2enter-next-step.txt << "EOF"
                               
                               
  ----------------------------
-| Please enter Part III.     |
+| Please sudo reboot         |
+| before                     |
+| entering Part III.         |
  ----------------------------
 
 
@@ -916,6 +918,6 @@ cat > $LFS/tf/prompt2enter-next-step.txt << "EOF"
 EOF
 cat $LFS/tf/prompt2enter-next-step.txt 1>&2
 
-# Logout from lfs user and relogin as root user
+# To relogin as root user
 ##sudo reboot
 

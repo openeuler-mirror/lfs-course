@@ -149,9 +149,11 @@ cat > /tf/prompt2enter-next-step.txt << "EOF"
                               
                               
  ----------------------------
-| Please enter Part-3.5      |
-| after                      |
-| logout                     |
+| Please logout from         |
+| chrooted environment and   |
+| enter Part-3.5 as          |
+| root of host               |
+| without rebooting.         |
  ----------------------------
 
 
@@ -159,10 +161,9 @@ cat > /tf/prompt2enter-next-step.txt << "EOF"
 EOF
 cat /tf/prompt2enter-next-step.txt 1>&2
 
-# Exit from the chrooted environment and 
-# to relogin as root user.
+# Exit from the chrooted environment
 ##logout
 
-# You can directly enter the part-3.5 without rebooting.
+# And directly enter the part-3.5 without rebooting.
 
 

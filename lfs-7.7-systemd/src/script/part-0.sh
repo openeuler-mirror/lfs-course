@@ -14,7 +14,7 @@
 # About this script
 #
 # 0. Reference: http://www.linuxfromscratch.org/
-# 1. How to get? (URL: https://gitee.com/openeuler-practice-courses/lfs-course)
+# 1. How to get? (URL: https://gitee.com/openeuler/lfs-course)
 # 2. It's for building LFS_TGT_System(7.7-systemd).
 # 3. Created on April 14, 2021 by Andrew Zhao at Hangzhou.
 # 4. Updated on July 19, 2021 by the student of Lanzhou University.
@@ -27,11 +27,12 @@
 # I wish to thank the following people for their help in the preparation of 
 # various versions of this script: 
 #
-# - ZhouYulin, LiBolin and LouJiaming. They are my colleagues.
-# - The students of Nankai University
-# - The students of Lanzhou University
-# - The students of Wuhan University of Technology
-# - The students of Beijing Electronic Science & Technology Institute
+# - Bolin-Li, Zhenyu-Zheng, Yulin-Zhou and Jiaming-Lou, they are my colleagues.
+# - The students of Peking University.
+# - The students of Nankai University.
+# - The students of Lanzhou University.
+# - The students of Wuhan University of Technology.
+# - The students of Beijing Electronic Science & Technology Institute.
 # - ......
 #
 

@@ -9,7 +9,7 @@
 #    ssh root@192.168.56.102 # instead of your own IP address
 #    然后将作业以 PR 的形式提交。
 # 2. 您也可以利用其他 git 工具将作业以 PR 的形式提交。
-# 3. 本实验以第一种情况为例进行讲解。
+# 3. 本节仅为示例，请依照实验要求根据自己的实际情况进行提交。
 #
 
 whoami # root
@@ -39,13 +39,9 @@ EOF
 
 cat ~/tf/part-4.txt 1>&2
 
-#
-# 请按照视频的指导提交 PR，此处仅列出一些关键步骤以供参考。
-#
-
 # 假设您的 git 账号已经正确配置：
-##git config --global user.name "your-user-name"
-##git config --global user.email "your-email-address-on-gitee"
+#git config --global user.name "your-user-name"
+#git config --global user.email "your-email-address-on-gitee"
 # 注意要配置成签署 CLA 的用户名和邮箱。
 
 # 我们以 https://gitee.com/glibc/lanzhou_university_2021 仓库为例，
@@ -68,7 +64,6 @@ git status
 mkdir 101010-zhaoxiaohu
 cd 101010-zhaoxiaohu
 
-#
 # 在这里用 scp 命令将实验截图从本地 PC 上传至此目录，
 # 比方说是 1.jpg。
 #

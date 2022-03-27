@@ -382,8 +382,8 @@ whoami # lfs
 echo $HOME
 #/home/lfs
 
-# sudo: check lfs password
-cat > $LFS/tf/prompt2enter-lfs-password.txt << "EOF"
+# test sudo: need lfs password
+cat > $HOME/prompt2enter-lfs-password.txt << "EOF"
 
 
 
@@ -400,9 +400,7 @@ cat > $LFS/tf/prompt2enter-lfs-password.txt << "EOF"
 
 
 EOF
-cat $LFS/tf/prompt2enter-lfs-password.txt 1>&2
-
-# test
+cat $HOME/prompt2enter-lfs-password.txt 1>&2
 sudo ls /
 
 # 4.4. Setting Up the Environment

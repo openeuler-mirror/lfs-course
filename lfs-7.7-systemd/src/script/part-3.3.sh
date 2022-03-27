@@ -171,8 +171,9 @@ cat > /tf/prompt2enter-next-step.txt << "EOF"
                               
  ----------------------------
 | Please enter Part-3.4      |
-| directly                   | 
-| without rebooting.         |
+| without rebooting          |
+| or                         |
+| after rebooting.           | 
  ----------------------------
 
 
@@ -181,4 +182,6 @@ EOF
 cat /tf/prompt2enter-next-step.txt 1>&2
 
 # You can directly enter the part-3.4 without rebooting.
-
+# or 
+#exit
+#reboot # and login by root user

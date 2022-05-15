@@ -1,4 +1,5 @@
 # lfs-course
+这个句子是做测试用的。。。
 
 #### 介绍
 本仓库为openEuler创新实践课Linux From Scratch(LFS)实践内容仓库

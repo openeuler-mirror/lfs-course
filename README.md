@@ -1,4 +1,4 @@
-# lfs-course
+# lfs-Course
 
 #### 介绍
 本仓库为openEuler创新实践课Linux From Scratch(LFS)实践内容仓库

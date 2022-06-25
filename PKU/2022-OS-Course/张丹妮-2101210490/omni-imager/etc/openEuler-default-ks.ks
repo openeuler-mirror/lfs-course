@@ -1,0 +1,25 @@
+%packages --instLangs=zh_CN.UTF-8
+@anaconda-tools
+@base
+@container-management
+@core
+@debugging
+@dns-server
+@file-server
+@ftp-server
+@hardware-monitoring
+@hardware-support
+@headless-management
+@infiniband
+@mail-server
+@network-file-system-client
+@network-server
+@openvswitch
+@performance
+@remote-system-management
+@server-product
+@smb-server
+@standard
+@virtualization-hypervisor
+@web-server
+%end

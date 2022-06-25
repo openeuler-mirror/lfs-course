@@ -1,0 +1,128 @@
+/*
+
+A branding component can ship a stylesheet (like this one)
+which is applied to parts of the Calamares user-interface.
+In principle, all parts can be styled through CSS.
+Missing parts should be filed as issues.
+
+The IDs are based on the object names in the C++ code.
+You can use the Debug Dialog to find out object names:
+  - Open the debug dialog
+  - Choose tab *Tools*
+  - Click *Widget Tree* button
+The list of object names is printed in the log.
+
+Documentation for styling Qt Widgets through a stylesheet
+can be found at
+    https://doc.qt.io/qt-5/stylesheet-examples.html
+    https://doc.qt.io/qt-5/stylesheet-reference.html
+In Calamares, styling widget classes is supported (e.g.
+using `QComboBox` as a selector).
+
+This example stylesheet has all the actual styling commented out.
+The examples are not exhaustive.
+
+*/
+
+/* 
+
+openEuler Calamares Theme
+
+*/
+
+/* ########## MAIN APPLICATION WINDOW ########## */
+
+#mainApp {
+
+}
+
+
+#sidebarMenuApp {
+	background-image: url(/etc/calamares/branding/openEuler/bg_sidebar_left.png);
+	font: 18px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+QWidget {
+	font: 14px;
+	color: #000000;
+}
+
+QProgressBar {
+    border: 1px solid grey;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+	background: #686868;
+}
+
+QProgressBar::chunk {
+    background-color: #002fa7;
+    border: none;
+	border-radius: 5px;
+}
+
+QListWidget::item:alternate {
+	color: #353945;
+}
+
+QDialogButtonBox { 
+	dialogbuttonbox-buttons-have-icons: 0;
+}
+
+
+#debugButton {
+	background-color: none;
+	font: bold 8px;
+	color: #ffffff;
+	height: 32px;
+    	padding: 0px;
+	border: none;
+}
+
+#debugButton:pressed {
+	color: #7F3FBF;
+}
+
+#debugButton:hover {
+	color: #7F3FBF;
+}
+
+#aboutButton {
+	background-color: none;
+	font: 16px;
+	color: #000000;
+    	border: none;
+}
+
+#aboutButton:pressed {
+	color: #7F3FBF;
+}
+
+#aboutButton:hover {
+	color: #7F3FBF;
+}
+
+
+
+
+
+
+/* Partitioning module.
+
+#bootInfoIcon { }
+#bootInfoLabel { }
+#deviceInfoIcon { }
+#defineInfoLabel { }
+#scrollAreaWidgetContents { }
+#partitionBarView { }
+
+*/
+
+/* Licensing module.
+
+#licenseItem {  }
+#licenseItemFullText {  }
+
+*/

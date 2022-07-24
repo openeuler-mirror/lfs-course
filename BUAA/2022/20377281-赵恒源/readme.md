@@ -1,0 +1,2 @@
+01.jpg是lfs的grub界面
+02.jpg是lfs系统内命令执行结果

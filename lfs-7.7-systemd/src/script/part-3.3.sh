@@ -116,7 +116,7 @@ make mrproper # This ensures that the kernel tree is absolutely clean.
 
 # 为节约时间，我们以一个 a sample of .config 文件为例直接进行编译，
 # 但是您应该了解如何用“make menuconfig”来配置内核。
-cp $LFS/material/lfs-course/lfs-7.7-systemd/src/config/sample/lfs_target_system/kernel/linux-3.19/.config4vmware_vm ./.config
+cp /material/lfs-course/lfs-7.7-systemd/src/config/sample/lfs_target_system/kernel/linux-3.19/.config4vmware_vm ./.config
 
 make
 #...

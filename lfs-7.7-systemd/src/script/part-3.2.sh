@@ -64,29 +64,34 @@ ifconfig
 #            inet addr:127.0.0.1  Mask:255.0.0.0
 #            ......
 
-# To creates a basic configuration file for Static IP setup:
+# Host-only NIC setup
+# VirtualBox VM has a DHCP server, 
+# to creates a basic configuration file for DHCP setup.
+# Note: You should update enp0s8 for yourself.
 cat > /etc/systemd/network/10-static-enp0s8.network << "EOF"
 [Match]
 Name=enp0s8
 [Network]
-Address=192.168.56.122/24
-Gateway=192.168.56.1
-DNS=192.168.56.1
+DHCP=yes
 EOF
 
-# To creates a basic configuration file for DHCP setup:
-##cat > /etc/systemd/network/10-dhcp-enp0s8.network << "EOF"
-##[Match]
-##Name=enp0s8
-##[Network]
-##DHCP=yes
-##EOF
+# NAT NIC setup
+# VirtualBox VM has a DHCP server, 
+# to creates a basic configuration file for DHCP setup.
+# Note: You should update enp0s3 for yourself.
+cat > /etc/systemd/network/10-dhcp-enp0s3.network << "EOF"
+[Match]
+Name=enp0s3
+[Network]
+DHCP=yes
+EOF
 
 # 7.2.2. Creating the /etc/resolv.conf File
 
 cat > /etc/resolv.conf << "EOF"
 # Begin /etc/resolv.conf
 nameserver 114.114.114.114
+nameserver 8.8.8.8
 
 # End /etc/resolv.conf
 EOF
@@ -104,7 +109,7 @@ cat > /etc/hosts << "EOF"
 # Begin /etc/hosts (network card version)
 127.0.0.1 localhost
 ::1 localhost
-192.168.56.122 andrew@manjucc.com
+
 # End /etc/hosts (network card version)
 EOF
 

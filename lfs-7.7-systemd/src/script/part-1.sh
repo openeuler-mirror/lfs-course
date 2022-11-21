@@ -194,7 +194,7 @@ cat ~/tf/prompt2config-git-account.txt 1>&2
 # You need to set your git account when you first run it.
 git config --global user.name "your-user-name"
 git config --global user.email "your-email-address-on-gitee"
-
+git config --global --list
 
 #
 # Chapter 2. Preparing a New Partition
@@ -496,7 +496,8 @@ whereis bison
 # 以 lfs 用户身份获取 LFS packages 以及再次获取 lfs-course 资料
 #
 cd $LFS/material
-wget https://zhuanyejianshe.obs.cn-north-4.myhuaweicloud.com/chuangxinshijianke/lfs-packages-7.7-systemd.tar
+wget http://ftp.osuosl.org/pub/lfs/lfs-packages/lfs-packages-7.7-systemd.tar
+# 注意：若该网址无效，您可能需要到别的地方下载。
 
 #sudo chown lfs lfs-packages-7.7-systemd.tar # added by andrew, but it's not necessary in most of the cases
 
@@ -505,16 +506,12 @@ ls -l
 #...
 #-rw-r--r--. 1 lfs lfs 344903680 Jul  2 18:08 lfs-packages-7.7-systemd.tar
 
-# 或者用下面链接，速度可能会慢些：
-#wget http://ftp.osuosl.org/pub/lfs/lfs-packages/lfs-packages-7.7-systemd.tar
-
 # 我们也可以先将其先下载到 PC，然后用 scp 命令拷贝到宿主系统：
 # scp lfs-packages-7.7-systemd.tar root@192.168.56.102:/mnt/lfs/material
 # 在上述命令中，请使用您自己宿主系统的 IP 地址替代示例中的 IP 地址。
 
 # Get the lfs-course material
 git clone https://gitee.com/openeuler/lfs-course.git # Official, upstream branch
-##git clone -b lfs_v1.3 https://gitee.com/glibc/lfs-course.git # Development, downstream branch, for instance.
 
 # Check
 ls -l $LFS/material/

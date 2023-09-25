@@ -61,15 +61,20 @@ cat ./tf/prompt_part-1.txt  1>&2
 # Preparing software for the Build
 #
 
+# 在用yum工具安装软件时，系统其repos源可能不能用，我们可以进行替换：
+
+cp /etc/yum.repos.d/openEuler.repo{,.0} # 备份
+sed -i -e 's/http:\/\/repo.openeuler.org/https:\/\/repo.huaweicloud.com\/openeuler/g' /etc/yum.repos.d/openEuler.repo
+yum clean all
+yum makecache
+
+# 安装软件
 yum group install -y "Development Tools"
 yum install -y bc
 yum install -y openssl-devel
-
 yum install -y texinfo # for makeinfo
-
 yum install -y vim
 yum install -y nano # Another choice instead of vim
-
 #yum install -y git # If any
 
 #
@@ -497,7 +502,10 @@ whereis bison
 #
 cd $LFS/material
 wget http://ftp.osuosl.org/pub/lfs/lfs-packages/lfs-packages-7.7-systemd.tar
-# 注意：若该网址无效，您可能需要到别的地方下载。
+# 注意：若该网址无效，你可以用课堂上提供的链接先下载到自己的PC本地，然后
+# 用 scp 命令拷贝到宿主系统：
+# scp lfs-packages-7.7-systemd.tar root@192.168.56.102:/mnt/lfs/material
+# 在上述命令中，请使用您自己宿主系统的 IP 地址替代示例中的 IP 地址。
 
 #sudo chown lfs lfs-packages-7.7-systemd.tar # added by andrew, but it's not necessary in most of the cases
 
@@ -505,10 +513,6 @@ wget http://ftp.osuosl.org/pub/lfs/lfs-packages/lfs-packages-7.7-systemd.tar
 ls -l
 #...
 #-rw-r--r--. 1 lfs lfs 344903680 Jul  2 18:08 lfs-packages-7.7-systemd.tar
-
-# 我们也可以先将其先下载到 PC，然后用 scp 命令拷贝到宿主系统：
-# scp lfs-packages-7.7-systemd.tar root@192.168.56.102:/mnt/lfs/material
-# 在上述命令中，请使用您自己宿主系统的 IP 地址替代示例中的 IP 地址。
 
 # Get the lfs-course material
 git clone https://gitee.com/openeuler/lfs-course.git # Official, upstream branch
